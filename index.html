@@ -22,7 +22,7 @@
         <div class="col-md-6">
           <form class="user-form">
             <div class="input-group">
-              <label for="username" class="sr-only">Your name</label>
+              <label for="username" class="sr-only"></label>
               <input id="username" placeholder="Name" class="form-control" type="text">
             </div>
             <span class="input-btn"><button class="btn btn-primary" type="submit" id="submit-username">Start</button></span>
@@ -32,23 +32,55 @@
     </header>
 
     <section class="row game-row">
-      <div id="player-area"class="col-md-4 game-area">
-        <h2 class="game-text text-center">Waiting for Player 1</h2>
-
-      </div>
+       <div class="col-md-4 box box-1">
+              <p class="name name-1"></p>
+              <div class="dynamic-box">
+                  <p class="waiting waiting-1">Waiting for Player 1</p>
+                  <div class="moves moves-1">
+                      <p class="move" data-choice="r" data-text="rock" role="button">rock</p>
+                      <p class="move" data-choice="p" data-text="paper" role="button">paper</p>
+                      <p class="move" data-choice="s" data-text="scissors" role="button">scissors</p>
+                  </div>
+                  <p class="choice choice-1"></p>
+              </div>
+              <p class="win-loss win-loss-1"></p>
+          </div>
 
       <div id="results-area" class="col-md-4 game-area">
-        <h2 class="game-text text-center">Winner: </h2>
+        <h2 class="turn"></h2>
+        <h2 class="game-text text-center winner"></h2>
       </div>
 
-      <div id="opponent-area" class="col-md-4 game-area">
-        <h2 class="game-text text-center">Waiting for Player 2</h2>
+      <div class="col-md-4 box box-2">
+          <p class="name name-2"></p>
+          <div class="dynamic-box">
+              <p class="waiting waiting-2">Waiting for Player 2</p>
+              <div class="moves moves-2">
+                  <p class="move" data-choice="r" data-text="rock" role="button">rock</p>
+                  <p class="move" data-choice="p" data-text="paper" role="button">paper</p>
+                  <p class="move" data-choice="s" data-text="scissors" role="button">scissors</p>
+              </div>
+              <p class="choice choice-2"></p>
+          </div>
+          <p class="win-loss win-loss-2"></p>
       </div>
     </section>
 
     <section class="row chat-row">
       <div class="col-md-12">
         <h2 class="chat-header text-center">Smack Chat</h2>
+        <div class="box box-chat">
+            <div class="chat-messages"></div>
+        </div>
+        <form class="chat-form">
+            <div class="input-group">
+                <label for="message" class="sr-only"></label>
+                <input id="message" placeholder="Type a message..." class="form-control" type="text">
+            </div>
+            <span class="input-group-btn">
+                <button class="btn btn-success" type="submit" id="submit-chat">Send</button>
+            </span>
+        </form>
 
       </div>
 
