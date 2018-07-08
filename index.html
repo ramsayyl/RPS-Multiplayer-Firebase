@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Rock, Paper, Scissors</title>
+  </head>
+
+  <body class="container">
+
+    <header class="center-block">
+      <div class="row">
+        <div class="col-md-6">
+          <h1 class="text-center">Rock, Paper, Scissors</h1>
+        </div>
+
+        <div class="col-md-6">
+          <form class="user-form">
+            <div class="input-group">
+              <label for="username" class="sr-only">Your name</label>
+              <input id="username" placeholder="Name" class="form-control" type="text">
+            </div>
+            <span class="input-btn"><button class="btn btn-primary" type="submit" id="submit-username">Start</button></span>
+          </form>
+        </div>
+      </div>
+    </header>
+
+    <section class="row game-row">
+      <div id="player-area"class="col-md-4 game-area">
+        <h2 class="game-text text-center">Waiting for Player 1</h2>
+
+      </div>
+
+      <div id="results-area" class="col-md-4 game-area">
+        <h2 class="game-text text-center">Winner: </h2>
+      </div>
+
+      <div id="opponent-area" class="col-md-4 game-area">
+        <h2 class="game-text text-center">Waiting for Player 2</h2>
+      </div>
+    </section>
+
+    <section class="row chat-row">
+      <div class="col-md-12">
+        <h2 class="chat-header text-center">Smack Chat</h2>
+
+      </div>
+
+    </section>
+
+
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+
+  </body>
+</html>
