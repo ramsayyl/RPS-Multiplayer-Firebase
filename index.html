@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script> -->
 <html lang="en" dir="ltr" ng-app="chatApp">
   <head>
     <meta charset="utf-8">
@@ -11,7 +10,6 @@
   </head>
 
   <body class="container">
-
     <header class="center-block">
       <div class="row">
         <div class="col-md-12">
@@ -21,7 +19,6 @@
     </header>
 
     <section class="row game-row">
-
           <div class="col-md-4 panel panel-primary">
             <div class="panel-heading player-panel-heading">Waiting for Player...</div>
               <div class="panel-body">
@@ -42,31 +39,31 @@
               </div>
           </div>
 
-      <div id="results-area" class="col-md-4 game-area text-center">
-        <h2 class="turn"></h2>
-        <h2 class="game-text text-center winner"></h2>
-      </div>
-
-      <div class="col-md-4 panel panel-primary">
-        <div class="panel-heading opponent-panel-heading">Waiting for Player...</div>
-          <div class="panel-body">
-            <form class="opponent-user-form">
-              <div class="input-group">
-                <label for="opponent-username" class="sr-only"></label>
-                <input id="opponent-username" placeholder="Name" class="form-control" type="text">
-              </div>
-              <span class="input-btn"><button class="btn btn-info" type="submit" id="submit-opponent-username">Start</button></span>
-            </form>
-            <p class="opponent-win-loss"></p>
-            <p class="opponent-rock" data-choice="r" data-text="rock" role="button">rock</p>
-            <p class="opponent-paper" data-choice="p" data-text="paper" role="button">paper</p>
-            <p class="opponent-scissors" data-choice="s" data-text="scissors" role="button">scissors</p>
-
-            <input type="text" id="opponent-message-field" class="form-control" placeholder="Type a message..." ng-model="messageText">
-            <button id="opponent-submit-button" type="submit" class="btn btn-success chat-send-button">Send</button>
-            <button class="btn btn-danger" type="button" name="button">Leave Game</button>
+          <div id="results-area" class="col-md-4 game-area text-center">
+            <h2 class="turn"></h2>
+            <h2 class="game-text text-center winner"></h2>
           </div>
-      </div>
+
+          <div class="col-md-4 panel panel-primary">
+            <div class="panel-heading opponent-panel-heading">Waiting for Player...</div>
+            <div class="panel-body">
+              <form class="opponent-user-form">
+                <div class="input-group">
+                  <label for="opponent-username" class="sr-only"></label>
+                  <input id="opponent-username" placeholder="Name" class="form-control" type="text">
+                </div>
+                <span class="input-btn"><button class="btn btn-info" type="submit" id="submit-opponent-username">Start</button></span>
+              </form>
+              <p class="opponent-win-loss"></p>
+              <p class="opponent-rock" data-choice="r" data-text="rock" role="button">rock</p>
+              <p class="opponent-paper" data-choice="p" data-text="paper" role="button">paper</p>
+              <p class="opponent-scissors" data-choice="s" data-text="scissors" role="button">scissors</p>
+
+              <input type="text" id="opponent-message-field" class="form-control" placeholder="Type a message..." ng-model="messageText">
+              <button id="opponent-submit-button" type="submit" class="btn btn-success chat-send-button">Send</button>
+              <button class="btn btn-danger" type="button" name="button">Leave Game</button>
+            </div>
+          </div>
     </section>
 
     <section>
@@ -77,9 +74,7 @@
             <p class="chat-area"></p>
           </div>
         </div>
-
     </section>
-
 
     <script type="text/javascript" src="assets/javascript/game.js"></script>
 
