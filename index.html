@@ -33,16 +33,16 @@
                   <span class="input-btn"><button class="btn btn-info" type="submit" id="submit-player-username">Start</button></span>
                 </form>
                 <p class="player-win-loss"></p>
-                <p class="move" data-choice="r" data-text="rock" role="button">rock</p>
-                <p class="move" data-choice="p" data-text="paper" role="button">paper</p>
-                <p class="move" data-choice="s" data-text="scissors" role="button">scissors</p>
+                <p class="player-rock" data-choice="r" data-text="rock" role="button">rock</p>
+                <p class="player-paper" data-choice="p" data-text="paper" role="button">paper</p>
+                <p class="player-scissors" data-choice="s" data-text="scissors" role="button">scissors</p>
                 <input type="text" id="player-message-field" class="form-control" placeholder="Type a message...">
                 <button id="player-submit-button" type="submit" class="btn btn-success player-send-button">Send</button>
                 <button class="btn btn-danger" type="button" name="button">Leave Game</button>
               </div>
           </div>
 
-      <div id="results-area" class="col-md-4 game-area">
+      <div id="results-area" class="col-md-4 game-area text-center">
         <h2 class="turn"></h2>
         <h2 class="game-text text-center winner"></h2>
       </div>
@@ -58,9 +58,9 @@
               <span class="input-btn"><button class="btn btn-info" type="submit" id="submit-opponent-username">Start</button></span>
             </form>
             <p class="opponent-win-loss"></p>
-            <p class="move" data-choice="r" data-text="rock" role="button">rock</p>
-            <p class="move" data-choice="p" data-text="paper" role="button">paper</p>
-            <p class="move" data-choice="s" data-text="scissors" role="button">scissors</p>
+            <p class="opponent-rock" data-choice="r" data-text="rock" role="button">rock</p>
+            <p class="opponent-paper" data-choice="p" data-text="paper" role="button">paper</p>
+            <p class="opponent-scissors" data-choice="s" data-text="scissors" role="button">scissors</p>
 
             <input type="text" id="opponent-message-field" class="form-control" placeholder="Type a message..." ng-model="messageText">
             <button id="opponent-submit-button" type="submit" class="btn btn-success chat-send-button">Send</button>
@@ -76,8 +76,6 @@
           <div class="panel-body">
             <p class="chat-area"></p>
           </div>
-          <!-- <input type="text" id="opponent-message-field" class="form-control" placeholder="Type a message..." ng-model="messageText"> -->
-          <!-- <button id="submit-button" type="submit" class="btn btn-success chat-send-button">Send</button> -->
         </div>
 
     </section>
