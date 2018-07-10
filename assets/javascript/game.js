@@ -15,7 +15,7 @@ var opponentRef = database.ref('opponent');
 
 var $name = "";
 var $message = "";
-var $time = Date.now();
+var $time = "";
 
 var $player = {
         number: '0',
@@ -45,7 +45,7 @@ $("#player-submit-button").on("click", function(event) {
     firebase.database().ref('messages').set({
       name: $player.name,
       message: $player.message,
-      time: $time
+      time: Date.now()
     });
 
   $("#player-message-field").val("");
@@ -59,7 +59,7 @@ $("#opponent-submit-button").on("click", function(event) {
     firebase.database().ref('messages').set({
       name: $opponent.name,
       message: $opponent.message,
-      time: $time
+      time: Date.now()
     });
 
   $("#opponent-message-field").val("");
@@ -67,7 +67,7 @@ $("#opponent-submit-button").on("click", function(event) {
 
 firebase.database().ref('messages').on("value", function(snapshot) {
   $(".chat-area").append(snapshot.val().name + ": " + snapshot.val().message + snapshot.val().time + "<br>")
-})
+});
 
 $("#submit-player-username").on("click", function(event) {
   event.preventDefault();
@@ -82,7 +82,7 @@ $("#submit-player-username").on("click", function(event) {
 
     $(".player-panel-heading").text($player.name)
   $("#username").val("");
-})
+});
 
 $("#submit-opponent-username").on("click", function(event) {
   event.preventDefault();
@@ -97,4 +97,28 @@ $("#submit-opponent-username").on("click", function(event) {
 
     $(".opponent-panel-heading").text($opponent.name)
   $("#opponent-username").val("");
+});
+
+firebase.database().ref('player').on("value", function(snapshot){
+  $(".player-panel-heading").text(snapshot.val().name);
+});
+
+firebase.database().ref('opponent').on("value", function(snapshot){
+  $(".opponent-panel-heading").text(snapshot.val().name);
+});
+
+$(".move").on("click", function(event){
+
+
+  if ($player.name.length > 0 && $opponent.name.length > 0) {
+    $player.choice = $(".move").attr("data-text");
+    console.log($player.choice);
+
+    firebase.database().ref('player').set({
+      choice: $player.choice
+    })
+
+  }
+  $player.choice = "";
+
 })
