@@ -1,49 +1,43 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<!-- <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script> -->
+<html lang="en" dir="ltr" ng-app="chatApp">
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>Rock, Paper, Scissors</title>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
   </head>
 
   <body class="container">
 
     <header class="center-block">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
           <h1 class="text-center">Rock, Paper, Scissors</h1>
-        </div>
-
-        <div class="col-md-6">
-          <form class="user-form">
-            <div class="input-group">
-              <label for="username" class="sr-only"></label>
-              <input id="username" placeholder="Name" class="form-control" type="text">
-            </div>
-            <span class="input-btn"><button class="btn btn-primary" type="submit" id="submit-username">Start</button></span>
-          </form>
         </div>
       </div>
     </header>
 
     <section class="row game-row">
-       <div class="col-md-4 box box-1">
-              <p class="name name-1"></p>
-              <div class="dynamic-box">
-                  <p class="waiting waiting-1">Waiting for Player 1</p>
-                  <div class="moves moves-1">
-                      <p class="move" data-choice="r" data-text="rock" role="button">rock</p>
-                      <p class="move" data-choice="p" data-text="paper" role="button">paper</p>
-                      <p class="move" data-choice="s" data-text="scissors" role="button">scissors</p>
+
+          <div class="col-md-4 panel panel-primary">
+            <div class="panel-heading player-panel-heading">Waiting for Player...</div>
+              <div class="panel-body">
+                <form class="player-user-form">
+                  <div class="input-group">
+                    <label for="player-username" class="sr-only"></label>
+                    <input id="player-username" placeholder="Name" class="form-control" type="text">
                   </div>
-                  <p class="choice choice-1"></p>
+                  <span class="input-btn"><button class="btn btn-info" type="submit" id="submit-player-username">Start</button></span>
+                </form>
+                <p class="player-win-loss"></p>
+                <p class="move" data-choice="r" data-text="rock" role="button">rock</p>
+                <p class="move" data-choice="p" data-text="paper" role="button">paper</p>
+                <p class="move" data-choice="s" data-text="scissors" role="button">scissors</p>
+                <button class="btn btn-danger" type="button" name="button">Leave Game</button>
               </div>
-              <p class="win-loss win-loss-1"></p>
           </div>
 
       <div id="results-area" class="col-md-4 game-area">
@@ -51,44 +45,44 @@
         <h2 class="game-text text-center winner"></h2>
       </div>
 
-      <div class="col-md-4 box box-2">
-          <p class="name name-2"></p>
-          <div class="dynamic-box">
-              <p class="waiting waiting-2">Waiting for Player 2</p>
-              <div class="moves moves-2">
-                  <p class="move" data-choice="r" data-text="rock" role="button">rock</p>
-                  <p class="move" data-choice="p" data-text="paper" role="button">paper</p>
-                  <p class="move" data-choice="s" data-text="scissors" role="button">scissors</p>
+      <div class="col-md-4 panel panel-primary">
+        <div class="panel-heading opponent-panel-heading">Waiting for Player...</div>
+          <div class="panel-body">
+            <form class="opponent-user-form">
+              <div class="input-group">
+                <label for="opponent-username" class="sr-only"></label>
+                <input id="opponent-username" placeholder="Name" class="form-control" type="text">
               </div>
-              <p class="choice choice-2"></p>
+              <span class="input-btn"><button class="btn btn-info" type="submit" id="submit-opponent-username">Start</button></span>
+            </form>
+            <p class="opponent-win-loss"></p>
+            <p class="move" data-choice="r" data-text="rock" role="button">rock</p>
+            <p class="move" data-choice="p" data-text="paper" role="button">paper</p>
+            <p class="move" data-choice="s" data-text="scissors" role="button">scissors</p>
+            <button class="btn btn-danger" type="button" name="button">Leave Game</button>
           </div>
-          <p class="win-loss win-loss-2"></p>
       </div>
     </section>
 
-    <section class="row chat-row">
-      <div class="col-md-12">
-        <h2 class="chat-header text-center">Smack Chat</h2>
-        <div class="box box-chat">
-            <div class="chat-messages"></div>
-        </div>
-        <form class="chat-form">
-            <div class="input-group">
-                <label for="message" class="sr-only"></label>
-                <input id="message" placeholder="Type a message..." class="form-control" type="text">
+    <section>
+      <br>
+      <div class="container">
+        <div class="panel panel-primary">
+          <div class="panel-heading">Smack Chat</div>
+          <div class="panel-body">
+            <p class="chat-area"></p>
+            <div class="form-group">
+              <input type="text" id="message-field" class="form-control" placeholder="Type a message..." ng-model="messageText">
             </div>
-            <span class="input-group-btn">
-                <button class="btn btn-success" type="submit" id="submit-chat">Send</button>
-            </span>
-        </form>
-
+            <button id="submit-button" type="submit" class="btn btn-success chat-send-button" ng-click="send()">Send</button>
+          </div>
+        </div>
       </div>
 
     </section>
 
 
     <script type="text/javascript" src="assets/javascript/game.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
 
   </body>
 </html>
