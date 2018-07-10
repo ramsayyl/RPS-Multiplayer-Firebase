@@ -36,6 +36,8 @@
                 <p class="move" data-choice="r" data-text="rock" role="button">rock</p>
                 <p class="move" data-choice="p" data-text="paper" role="button">paper</p>
                 <p class="move" data-choice="s" data-text="scissors" role="button">scissors</p>
+                <input type="text" id="player-message-field" class="form-control" placeholder="Type a message...">
+                <button id="player-submit-button" type="submit" class="btn btn-success player-send-button">Send</button>
                 <button class="btn btn-danger" type="button" name="button">Leave Game</button>
               </div>
           </div>
@@ -59,6 +61,9 @@
             <p class="move" data-choice="r" data-text="rock" role="button">rock</p>
             <p class="move" data-choice="p" data-text="paper" role="button">paper</p>
             <p class="move" data-choice="s" data-text="scissors" role="button">scissors</p>
+
+            <input type="text" id="message-field" class="form-control" placeholder="Type a message..." ng-model="messageText">
+            <button id="submit-button" type="submit" class="btn btn-success chat-send-button">Send</button>
             <button class="btn btn-danger" type="button" name="button">Leave Game</button>
           </div>
       </div>
@@ -66,18 +71,12 @@
 
     <section>
       <br>
-      <div class="container">
         <div class="panel panel-primary">
           <div class="panel-heading">Smack Chat</div>
           <div class="panel-body">
             <p class="chat-area"></p>
-            <div class="form-group">
-              <input type="text" id="message-field" class="form-control" placeholder="Type a message..." ng-model="messageText">
-            </div>
-            <button id="submit-button" type="submit" class="btn btn-success chat-send-button" ng-click="send()">Send</button>
           </div>
         </div>
-      </div>
 
     </section>
 

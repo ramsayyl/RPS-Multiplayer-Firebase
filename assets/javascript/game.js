@@ -23,7 +23,8 @@ var $player = {
         wins: 0,
         losses: 0,
         turns: 0,
-        choice: ''
+        choice: '',
+        message: ""
     };
     var $opponent = {
         number: '0',
@@ -31,23 +32,37 @@ var $player = {
         wins: 0,
         losses: 0,
         turns: 0,
-        choice: ''
+        choice: '',
+        message: ""
     };
 
 
-$("#submit-button").on("click", function(event) {
+$("#player-submit-button").on("click", function(event) {
   event.preventDefault();
 
-  $message = $("#message-field").val().trim();
+  $player.message = $("#player-message-field").val().trim();
 
     firebase.database().ref('messages').set({
-      name: $name,
-      message: $message,
+      name: $player.name,
+      message: $player.message,
       time: $time
     });
 
-  console.log($name + $message + $time)
-  $("#message-field").val("");
+  $("#player-message-field").val("");
+});
+
+$("#opponent-submit-button").on("click", function(event) {
+  event.preventDefault();
+
+  $opponent.message = $("#opponent-message-field").val().trim();
+
+    firebase.database().ref('messages').set({
+      name: $opponent.name,
+      message: $opponent.message,
+      time: $time
+    });
+
+  $("#opponent-message-field").val("");
 });
 
 firebase.database().ref('messages').on("value", function(snapshot) {
@@ -60,8 +75,8 @@ $("#submit-player-username").on("click", function(event) {
 
     firebase.database().ref('player').set({
       name: $player.name
-
     });
+
     $(".player-panel-heading").val("");
     $(".player-user-form").hide();
 
@@ -75,8 +90,8 @@ $("#submit-opponent-username").on("click", function(event) {
 
     firebase.database().ref('opponent').set({
       name: $opponent.name
-
     });
+
     $(".opponent-panel-heading").val("");
     $(".opponent-user-form").hide();
 
