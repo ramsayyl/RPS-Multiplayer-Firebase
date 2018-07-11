@@ -222,10 +222,10 @@ function winCheck() {
           $player.losses++;
       }
     }
-
     $player.choice = "";
     $opponent.choice = "";
   }
+
   firebase.database().ref('player').set({
     wins: $player.wins,
     losses: $player.losses
